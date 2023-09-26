@@ -18,12 +18,12 @@ namespace PersonalTrackingApp
         {
             InitializeComponent();
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
+        void FillGrid()
         {
-            this.Close();
+            positionList = PositionBLL.GetPositions();
+            dataGridView1.DataSource = positionList;
         }
-
+        List<PositionDTO> positionList = new List<PositionDTO>();
         private void btnNew_Click(object sender, EventArgs e)
         {
             FormPosition open = new FormPosition();
@@ -33,6 +33,11 @@ namespace PersonalTrackingApp
             FillGrid();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             FormPosition open = new FormPosition();
@@ -40,12 +45,7 @@ namespace PersonalTrackingApp
             open.ShowDialog();
             this.Visible = true;
         }
-        void FillGrid()
-        {
-            positionList = PositionBLL.GetPositions();
-            dataGridView1.DataSource = positionList;
-        }
-        List<PositionDTO> positionList = new List<PositionDTO>();
+
         private void FormPositionList_Load(object sender, EventArgs e)
         {
             FillGrid();

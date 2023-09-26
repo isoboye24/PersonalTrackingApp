@@ -33,35 +33,36 @@ namespace DAL.DataAccessObject
                         {
                             EmployeeID = e.employeeID,
                             UserNo = e.userNo,
-                            Password = e.password,
                             Name = e.name,
                             Surname = e.surname,
-                            DepartmentName = d.departmentName,
+                            ImagePath = e.imagePath,
                             DepartmentID = e.departmentID,
+                            DepartmentName = d.departmentName,
                             PositionID = e.positionID,
                             PositionName = p.positionName,
-                            IsAdmin = e.isAdmin,
                             Salary = e.salary,
-                            ImagePath = e.imagePath,
                             Birthday = e.birthday,
-                            Address = e.address
+                            Address = e.address,
+                            Password = e.password,
+                            IsAdmin = e.isAdmin
                         }).OrderBy(x =>x.UserNo).ToList();
             foreach(var item in list)
             {
                 EmployeeDetailsDTO dto = new EmployeeDetailsDTO();
+                dto.EmployeeID = item.EmployeeID;
                 dto.UserNo = item.UserNo;
-                dto.Password = item.Password;
                 dto.Name = item.Name;
                 dto.Surname = item.Surname;
-                dto.EmployeeID = item.EmployeeID;
+                dto.ImagePath = item.ImagePath;
                 dto.DepartmentID = item.DepartmentID;
-                dto.PositionID = item.PositionID;
                 dto.DepartmentName = item.DepartmentName;
+                dto.PositionID = item.PositionID;
                 dto.PositionName = item.PositionName;
-                dto.IsAdmin = item.IsAdmin;
                 dto.Salary = item.Salary;
                 dto.Birthday = item.Birthday;
                 dto.Address = item.Address;
+                dto.Password = item.Password;
+                dto.IsAdmin = item.IsAdmin;
                 employeesList.Add(dto);
             }
             return employeesList;

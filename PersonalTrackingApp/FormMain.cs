@@ -19,7 +19,7 @@ namespace PersonalTrackingApp
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            FormEmployeeList open = new FormEmployeeList();
+            FormEmployeeList2 open = new FormEmployeeList2();
             this.Hide();
             open.ShowDialog();
             this.Visible = true;
