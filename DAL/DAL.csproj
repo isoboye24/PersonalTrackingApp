@@ -44,7 +44,10 @@
   <ItemGroup>
     <Compile Include="DataAccessObject\DepartmentDAO.cs" />
     <Compile Include="DataAccessObject\EmployeeContent.cs" />
+    <Compile Include="DataAccessObject\EmployeeDAO.cs" />
     <Compile Include="DataAccessObject\PositionDAO.cs" />
+    <Compile Include="DataTransferObject\EmployeeDetailsDTO.cs" />
+    <Compile Include="DataTransferObject\EmployeeDTO.cs" />
     <Compile Include="DataTransferObject\PositionDTO.cs" />
     <Compile Include="EmployeeDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
