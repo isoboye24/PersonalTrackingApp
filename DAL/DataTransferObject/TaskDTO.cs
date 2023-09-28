@@ -12,5 +12,6 @@ namespace DAL.DataTransferObject
         public List<PositionDTO> Positions { set; get; }
         public List<EmployeeDetailsDTO> Employees { set; get; }
         public List<TASKSTATE> TasksState { set; get; }
+        public List<TaskDetailDTO> Tasks { get; set; }
     }
 }
