@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using DAL.DataTransferObject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +22,29 @@ namespace PersonalTrackingApp
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            FormMain open = new FormMain();
-            this.Hide();
-            open.ShowDialog();
+            if (txtUserNo.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter user number and password");
+            }
+            else
+            {
+                List<EMPLOYEE> employeeList = EmployeeBLL.GetEmployee(txtPassword.Text, Convert.ToInt32(txtUserNo.Text));
+                if (employeeList.Count == 0)
+                {
+                    MessageBox.Show("Please control your information");
+                }
+                else
+                {
+                    EMPLOYEE employee = new EMPLOYEE();
+                    employee = employeeList.First();
+                    UserStatic.EmployeeID = employee.employeeID;
+                    UserStatic.UserNo = employee.userNo;
+                    UserStatic.isAdmin = employee.isAdmin;
+                    FormMain open = new FormMain();
+                    this.Hide();
+                    open.ShowDialog();
+                }
+            }
         }
 
         private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)

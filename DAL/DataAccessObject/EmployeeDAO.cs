@@ -23,6 +23,12 @@ namespace DAL.DataAccessObject
 			}
         }
 
+        public static List<EMPLOYEE> GetEmployee(string text, int v)
+        {
+            List<EMPLOYEE> list = db.EMPLOYEEs.Where(x => x.userNo == v && x.password == text).ToList();
+            return list;
+        }
+
         public static List<EmployeeDetailsDTO> GetEmployees()
         {
             List<EmployeeDetailsDTO> employeesList = new List<EmployeeDetailsDTO>();
