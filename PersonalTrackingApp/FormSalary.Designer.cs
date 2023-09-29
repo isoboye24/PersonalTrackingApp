@@ -28,52 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbTaskState = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
             this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmbMonth = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmbTaskState
-            // 
-            this.cmbTaskState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTaskState.FormattingEnabled = true;
-            this.cmbTaskState.Location = new System.Drawing.Point(111, 131);
-            this.cmbTaskState.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbTaskState.Name = "cmbTaskState";
-            this.cmbTaskState.Size = new System.Drawing.Size(141, 29);
-            this.cmbTaskState.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 134);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 21);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Task State";
             // 
             // label7
             // 
@@ -82,9 +61,9 @@
             this.label7.Location = new System.Drawing.Point(12, 172);
             this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 21);
+            this.label7.Size = new System.Drawing.Size(43, 21);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Title";
+            this.label7.Text = "Year";
             // 
             // txtName
             // 
@@ -128,14 +107,14 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Surname";
             // 
-            // txtTitle
+            // txtYear
             // 
-            this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(111, 170);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(141, 29);
-            this.txtTitle.TabIndex = 4;
+            this.txtYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.Location = new System.Drawing.Point(111, 170);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(141, 29);
+            this.txtYear.TabIndex = 4;
             // 
             // txtUserNo
             // 
@@ -169,6 +148,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -194,6 +174,16 @@
             this.panel1.Size = new System.Drawing.Size(274, 500);
             this.panel1.TabIndex = 29;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 155);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(274, 345);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.cmbPosition);
@@ -205,36 +195,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(274, 155);
             this.panel2.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(274, 345);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // cmbMonth
-            // 
-            this.cmbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(111, 209);
-            this.cmbMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(141, 28);
-            this.cmbMonth.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 210);
-            this.label5.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Month";
             // 
             // cmbPosition
             // 
@@ -278,6 +238,47 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Department";
             // 
+            // cmbMonth
+            // 
+            this.cmbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Location = new System.Drawing.Point(111, 209);
+            this.cmbMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(141, 28);
+            this.cmbMonth.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 210);
+            this.label5.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Month";
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalary.Location = new System.Drawing.Point(111, 131);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(141, 29);
+            this.txtSalary.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 133);
+            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 21);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Salary";
+            // 
             // FormSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -286,42 +287,40 @@
             this.Controls.Add(this.cmbMonth);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cmbTaskState);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.txtSalary);
+            this.Controls.Add(this.txtYear);
             this.Controls.Add(this.txtUserNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormSalary";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salary";
+            this.Load += new System.EventHandler(this.FormSalary_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbTaskState;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
@@ -335,5 +334,7 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtSalary;
+        private System.Windows.Forms.Label label4;
     }
 }
