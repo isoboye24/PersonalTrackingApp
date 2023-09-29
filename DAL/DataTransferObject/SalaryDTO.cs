@@ -8,10 +8,10 @@ namespace DAL.DataTransferObject
 {
     public class SalaryDTO
     {
+        public List<SalaryDetailDTO> Salaries { get; set; }
         public List<DEPARTMENT> Departments { get; set; }
         public List<PositionDTO> Positions { get; set; }
         public List<EmployeeDetailsDTO> Employees { get; set; }
         public List<MONTH> Months { get; set; }
-        public List<SalaryDetailDTO> Salaries { get; set; }
     }
 }

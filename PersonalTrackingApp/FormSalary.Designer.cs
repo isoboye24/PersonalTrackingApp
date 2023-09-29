@@ -169,9 +169,9 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(436, 0);
+            this.panel1.Location = new System.Drawing.Point(384, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(274, 500);
+            this.panel1.Size = new System.Drawing.Size(326, 500);
             this.panel1.TabIndex = 29;
             // 
             // dataGridView1
@@ -180,7 +180,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 155);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(274, 345);
+            this.dataGridView1.Size = new System.Drawing.Size(326, 345);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
@@ -193,7 +193,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(274, 155);
+            this.panel2.Size = new System.Drawing.Size(326, 155);
             this.panel2.TabIndex = 0;
             // 
             // cmbPosition

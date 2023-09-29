@@ -23,7 +23,7 @@ namespace BLL
             dto.Positions = PositionDAO.GetPositions();
             dto.Employees = EmployeeDAO.GetEmployees();
             dto.Months = SalaryDAO.GetMonths();
-            
+            dto.Salaries = SalaryDAO.GetSalaries();
             return dto;
         }
     }

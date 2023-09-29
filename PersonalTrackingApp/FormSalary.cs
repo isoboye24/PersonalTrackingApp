@@ -103,7 +103,7 @@ namespace PersonalTrackingApp
             txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtSurname.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             txtYear.Text = DateTime.Today.Year.ToString();
-            txtSurname.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
         }
     }
 }

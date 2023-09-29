@@ -29,12 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.rbEquals = new System.Windows.Forms.RadioButton();
+            this.rbLess = new System.Windows.Forms.RadioButton();
+            this.rbMore = new System.Windows.Forms.RadioButton();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSalary = new System.Windows.Forms.TextBox();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
@@ -46,25 +53,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbMonth = new System.Windows.Forms.ComboBox();
-            this.txtSalary = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.rbMore = new System.Windows.Forms.RadioButton();
-            this.rbLess = new System.Windows.Forms.RadioButton();
-            this.rbEquals = new System.Windows.Forms.RadioButton();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panelAdmin.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panelAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,15 +78,75 @@
             this.panel1.Size = new System.Drawing.Size(807, 204);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // panel3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 204);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(807, 242);
-            this.dataGridView1.TabIndex = 2;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.btnClear);
+            this.panel3.Controls.Add(this.btnSearch);
+            this.panel3.Controls.Add(this.txtYear);
+            this.panel3.Controls.Add(this.cmbMonth);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.txtSalary);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(304, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(503, 204);
+            this.panel3.TabIndex = 1;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.rbEquals);
+            this.panel4.Controls.Add(this.rbLess);
+            this.panel4.Controls.Add(this.rbMore);
+            this.panel4.Location = new System.Drawing.Point(267, 27);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(233, 85);
+            this.panel4.TabIndex = 3;
+            // 
+            // rbEquals
+            // 
+            this.rbEquals.AutoSize = true;
+            this.rbEquals.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbEquals.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbEquals.Location = new System.Drawing.Point(157, 55);
+            this.rbEquals.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbEquals.Name = "rbEquals";
+            this.rbEquals.Size = new System.Drawing.Size(65, 21);
+            this.rbEquals.TabIndex = 2;
+            this.rbEquals.TabStop = true;
+            this.rbEquals.Text = "Equals";
+            this.rbEquals.UseVisualStyleBackColor = true;
+            // 
+            // rbLess
+            // 
+            this.rbLess.AutoSize = true;
+            this.rbLess.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbLess.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbLess.Location = new System.Drawing.Point(81, 56);
+            this.rbLess.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbLess.Name = "rbLess";
+            this.rbLess.Size = new System.Drawing.Size(51, 21);
+            this.rbLess.TabIndex = 1;
+            this.rbLess.TabStop = true;
+            this.rbLess.Text = "Less";
+            this.rbLess.UseVisualStyleBackColor = true;
+            // 
+            // rbMore
+            // 
+            this.rbMore.AutoSize = true;
+            this.rbMore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbMore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMore.Location = new System.Drawing.Point(2, 58);
+            this.rbMore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbMore.Name = "rbMore";
+            this.rbMore.Size = new System.Drawing.Size(57, 21);
+            this.rbMore.TabIndex = 0;
+            this.rbMore.TabStop = true;
+            this.rbMore.Text = "More";
+            this.rbMore.UseVisualStyleBackColor = true;
             // 
             // btnClear
             // 
@@ -99,6 +159,7 @@
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSearch
             // 
@@ -111,45 +172,68 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnUpdate
+            // txtYear
             // 
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(293, 14);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 44);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.Location = new System.Drawing.Point(82, 25);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(156, 26);
+            this.txtYear.TabIndex = 0;
             // 
-            // btnNew
+            // cmbMonth
             // 
-            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(156, 14);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(110, 44);
-            this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "Add New";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.cmbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Location = new System.Drawing.Point(82, 61);
+            this.cmbMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(156, 28);
+            this.cmbMonth.TabIndex = 1;
             // 
-            // panel2
+            // label7
             // 
-            this.panel2.Controls.Add(this.btnClose);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Controls.Add(this.btnUpdate);
-            this.panel2.Controls.Add(this.btnNew);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 373);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(807, 73);
-            this.panel2.TabIndex = 0;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 57);
+            this.label7.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 21);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Month";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Year";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(13, 93);
+            this.label8.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 21);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Salary";
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalary.Location = new System.Drawing.Point(82, 97);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(156, 26);
+            this.txtSalary.TabIndex = 2;
             // 
             // panelAdmin
             // 
@@ -189,6 +273,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(156, 28);
             this.cmbDepartment.TabIndex = 3;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -273,147 +358,55 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "User No.";
             // 
-            // label5
+            // dataGridView1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 18);
-            this.label5.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 21);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Year";
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 204);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(807, 242);
+            this.dataGridView1.TabIndex = 2;
             // 
-            // txtYear
+            // btnUpdate
             // 
-            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(82, 25);
-            this.txtYear.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(156, 26);
-            this.txtYear.TabIndex = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(293, 14);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 44);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label7
+            // btnNew
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 57);
-            this.label7.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 21);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Month";
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Location = new System.Drawing.Point(156, 14);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(110, 44);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "Add New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // cmbMonth
+            // panel2
             // 
-            this.cmbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(82, 61);
-            this.cmbMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(156, 28);
-            this.cmbMonth.TabIndex = 1;
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalary.Location = new System.Drawing.Point(82, 97);
-            this.txtSalary.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(156, 26);
-            this.txtSalary.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 93);
-            this.label8.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 21);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Salary";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.btnClear);
-            this.panel3.Controls.Add(this.btnSearch);
-            this.panel3.Controls.Add(this.txtYear);
-            this.panel3.Controls.Add(this.cmbMonth);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.txtSalary);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(304, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(503, 204);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.rbEquals);
-            this.panel4.Controls.Add(this.rbLess);
-            this.panel4.Controls.Add(this.rbMore);
-            this.panel4.Location = new System.Drawing.Point(267, 27);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(233, 85);
-            this.panel4.TabIndex = 3;
-            // 
-            // rbMore
-            // 
-            this.rbMore.AutoSize = true;
-            this.rbMore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbMore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMore.Location = new System.Drawing.Point(2, 58);
-            this.rbMore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbMore.Name = "rbMore";
-            this.rbMore.Size = new System.Drawing.Size(57, 21);
-            this.rbMore.TabIndex = 0;
-            this.rbMore.TabStop = true;
-            this.rbMore.Text = "More";
-            this.rbMore.UseVisualStyleBackColor = true;
-            // 
-            // rbLess
-            // 
-            this.rbLess.AutoSize = true;
-            this.rbLess.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbLess.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbLess.Location = new System.Drawing.Point(81, 56);
-            this.rbLess.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbLess.Name = "rbLess";
-            this.rbLess.Size = new System.Drawing.Size(51, 21);
-            this.rbLess.TabIndex = 1;
-            this.rbLess.TabStop = true;
-            this.rbLess.Text = "Less";
-            this.rbLess.UseVisualStyleBackColor = true;
-            // 
-            // rbEquals
-            // 
-            this.rbEquals.AutoSize = true;
-            this.rbEquals.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbEquals.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEquals.Location = new System.Drawing.Point(157, 55);
-            this.rbEquals.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbEquals.Name = "rbEquals";
-            this.rbEquals.Size = new System.Drawing.Size(65, 21);
-            this.rbEquals.TabIndex = 2;
-            this.rbEquals.TabStop = true;
-            this.rbEquals.Text = "Equals";
-            this.rbEquals.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(420, 14);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(110, 44);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.panel2.Controls.Add(this.btnClose);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnUpdate);
+            this.panel2.Controls.Add(this.btnNew);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 373);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(807, 73);
+            this.panel2.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -428,6 +421,18 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(420, 14);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(110, 44);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // FormSalaryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -437,19 +442,20 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormSalaryList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salary List";
+            this.Load += new System.EventHandler(this.FormSalaryList_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panelAdmin.ResumeLayout(false);
-            this.panelAdmin.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panelAdmin.ResumeLayout(false);
+            this.panelAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
