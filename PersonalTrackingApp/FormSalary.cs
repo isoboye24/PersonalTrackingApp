@@ -91,6 +91,7 @@ namespace PersonalTrackingApp
                 salary.month = Convert.ToInt32(cmbMonth.SelectedValue);
                 SalaryBLL.AddSalary(salary);
                 MessageBox.Show("Salary is added");
+                salary = new SALARY();
                 cmbMonth.SelectedIndex = -1;
                 txtSalary.Clear();
             }

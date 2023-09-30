@@ -39,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDayAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label8
@@ -95,6 +95,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -118,6 +119,7 @@
             this.dateTimePickerFinish.Name = "dateTimePickerFinish";
             this.dateTimePickerFinish.Size = new System.Drawing.Size(266, 23);
             this.dateTimePickerFinish.TabIndex = 2;
+            this.dateTimePickerFinish.ValueChanged += new System.EventHandler(this.dateTimePickerFinish_ValueChanged);
             // 
             // dateTimePickerStart
             // 
@@ -127,6 +129,7 @@
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(266, 23);
             this.dateTimePickerStart.TabIndex = 1;
+            this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
             // label2
             // 
@@ -159,15 +162,15 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Day Amount";
             // 
-            // textBox1
+            // txtDayAmount
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(129, 121);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(265, 29);
-            this.textBox1.TabIndex = 3;
+            this.txtDayAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDayAmount.Location = new System.Drawing.Point(129, 121);
+            this.txtDayAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDayAmount.Name = "txtDayAmount";
+            this.txtDayAmount.ReadOnly = true;
+            this.txtDayAmount.Size = new System.Drawing.Size(265, 29);
+            this.txtDayAmount.TabIndex = 3;
             // 
             // FormPermission
             // 
@@ -180,17 +183,18 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtExplanation);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDayAmount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUserNo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormPermission";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Permission";
+            this.Load += new System.EventHandler(this.FormPermission_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,6 +213,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDayAmount;
     }
 }
