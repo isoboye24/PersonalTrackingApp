@@ -70,5 +70,30 @@ namespace DAL.DataAccessObject
         {
             return db.PERMISSIONSTATEs.ToList();
         }
+
+        public static void UpdatePermission(PERMISSION permission)
+        {
+            try
+            {
+                PERMISSION pr = db.PERMISSIONs.First(x => x.permissionID == permission.permissionID);
+                pr.permissionStartDate = permission.permissionStartDate;
+                pr.permissionEndDate = permission.permissionEndDate;
+                pr.permissionExplanation = permission.permissionExplanation;
+                pr.permissionDay = permission.permissionDay;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static void UpdatePermission(int permissionID, int approve)
+        {
+            PERMISSION pr = db.PERMISSIONs.First(x =>x.permissionID == permissionID);
+            pr.permissionState = approve; 
+            db.SubmitChanges();
+        }
     }
 }

@@ -434,13 +434,14 @@
             // 
             this.btnDisapprove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDisapprove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisapprove.Location = new System.Drawing.Point(49, 30);
+            this.btnDisapprove.Location = new System.Drawing.Point(46, 30);
             this.btnDisapprove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisapprove.Name = "btnDisapprove";
-            this.btnDisapprove.Size = new System.Drawing.Size(104, 42);
+            this.btnDisapprove.Size = new System.Drawing.Size(107, 42);
             this.btnDisapprove.TabIndex = 0;
             this.btnDisapprove.Text = "Disapprove";
             this.btnDisapprove.UseVisualStyleBackColor = true;
+            this.btnDisapprove.Click += new System.EventHandler(this.btnDisapprove_Click);
             // 
             // btnApprove
             // 
@@ -453,6 +454,7 @@
             this.btnApprove.TabIndex = 1;
             this.btnApprove.Text = "Approve";
             this.btnApprove.UseVisualStyleBackColor = true;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
             // 
             // btnNew
             // 
@@ -477,6 +479,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(773, 207);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FormPermissionList
             // 
