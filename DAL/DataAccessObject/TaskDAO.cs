@@ -55,6 +55,7 @@ namespace DAL.DataAccessObject
                 TaskDetailDTO dto = new TaskDetailDTO();
                 dto.TaskID = item.taskID;
                 dto.Title = item.title;
+                dto.Content = item.content;
                 dto.TaskStartDate = item.startDate;
                 dto.TaskDeliveryDate = item.deliveryDate;
                 dto.TaskStateID = item.taskStateID;
@@ -76,6 +77,24 @@ namespace DAL.DataAccessObject
         public static List<TASKSTATE> GetTasksState()
         {
             return db.TASKSTATEs.ToList();
+        }
+
+        public static void UpdateTask(TASK task)
+        {
+            try
+            {
+                TASK ts = db.TASKs.First(x => x.taskID == task.taskID);
+                ts.taskTitle = task.taskTitle;
+                ts.taskContent = task.taskContent;
+                ts.taskState = task.taskState;
+                ts.employeeID = task.employeeID;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

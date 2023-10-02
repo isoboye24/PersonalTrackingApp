@@ -28,6 +28,8 @@ namespace PersonalTrackingApp
         TaskDTO dto = new TaskDTO();
         bool comboFull = false;
         TASK task = new TASK();
+        public bool isUpdate = false;
+        public TaskDetailDTO detail = new TaskDetailDTO();
         private void btnSave_Click(object sender, EventArgs e)
         {            
             if (task.employeeID == 0)
@@ -43,17 +45,42 @@ namespace PersonalTrackingApp
                 MessageBox.Show("Please enter task content");
             }
             else
-            {
-                task.taskTitle = txtTitle.Text;
-                task.taskContent = txtContent.Text;
-                task.taskStartDate = DateTime.Today;                
-                task.taskState = 1;
-                TaskBLL.AddTask(task);
-                MessageBox.Show("Task added");
-
-                txtTitle.Clear();
-                txtContent.Clear();
-                task = new TASK();
+            {                
+                if (!isUpdate)
+                {
+                    task.taskTitle = txtTitle.Text;
+                    task.taskContent = txtContent.Text;
+                    task.taskStartDate = DateTime.Today;
+                    task.taskState = 1;
+                    TaskBLL.AddTask(task);
+                    MessageBox.Show("Task added");
+                    txtTitle.Clear();
+                    txtContent.Clear();
+                    task = new TASK();
+                }
+                else if(isUpdate)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        TASK update = new TASK();
+                        update.taskID = detail.TaskID;
+                        if (Convert.ToInt32(txtUserNo.Text) != detail.UserNo)
+                        {
+                            update.employeeID = task.employeeID;
+                        }
+                        else
+                        {
+                            update.employeeID = detail.EmployeeID;
+                        }
+                        update.taskTitle = txtTitle.Text;
+                        update.taskContent = txtContent.Text;
+                        update.taskState = Convert.ToInt32(cmbTaskState.SelectedValue);
+                        TaskBLL.UpdateTask(update);
+                        MessageBox.Show("Task was updated");
+                        this.Close();
+                    }
+                }
             }
         }
 
@@ -93,6 +120,21 @@ namespace PersonalTrackingApp
             cmbTaskState.DisplayMember = "stateName";
             cmbTaskState.ValueMember = "stateID";
             cmbTaskState.SelectedIndex = -1;
+
+            if (isUpdate)
+            {
+                label4.Visible = true;
+                cmbTaskState.Visible = true;
+                txtName.Text = detail.Name;
+                txtSurname.Text = detail.Surname;
+                txtTitle.Text = detail.Title;
+                txtContent.Text = detail.Content;
+                txtUserNo.Text = detail.UserNo.ToString();
+                cmbTaskState.DataSource = dto.TasksState;
+                cmbTaskState.DisplayMember = "stateName";
+                cmbTaskState.ValueMember = "stateID";
+                cmbTaskState.SelectedValue = detail.TaskStateID;
+            }
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)

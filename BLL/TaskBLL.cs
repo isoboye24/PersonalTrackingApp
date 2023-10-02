@@ -27,5 +27,10 @@ namespace BLL
             taskdto.Tasks = TaskDAO.GetTasks();
             return taskdto;
         }
+
+        public static void UpdateTask(TASK task)
+        {
+            TaskDAO.UpdateTask(task);
+        }
     }
 }
