@@ -78,5 +78,20 @@ namespace DAL.DataAccessObject
         {
             return db.EMPLOYEEs.Where(x => x.userNo == v).ToList();
         }
+
+        public static void UpdateSalary(int employeeID, int amount)
+        {
+            try
+            {
+                EMPLOYEE employee = db.EMPLOYEEs.First(x => x.employeeID == employeeID);
+                employee.salary = amount;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

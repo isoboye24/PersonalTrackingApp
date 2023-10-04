@@ -34,7 +34,7 @@ namespace PersonalTrackingApp
         private void btnNew_Click(object sender, EventArgs e)
         {
             FormSalary open = new FormSalary();
-            this.Hide();
+            this.Close();
             open.ShowDialog();
             this.Visible = true;
             FillAllData();
@@ -43,10 +43,21 @@ namespace PersonalTrackingApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FormSalary open = new FormSalary();
-            this.Hide();
-            open.ShowDialog();
-            this.Visible = true;
+            if (detail.SalaryID == 0)
+            {
+                MessageBox.Show("Please select a salary from the table");
+            }
+            else
+            {
+                FormSalary open = new FormSalary();
+                open.isUpdate = true;
+                open.detail = detail;
+                this.Hide();
+                open.ShowDialog();
+                this.Visible = true;
+                FillAllData();
+                ClearFillters();
+            }            
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -55,6 +66,8 @@ namespace PersonalTrackingApp
         }
         SalaryDTO dto = new SalaryDTO();
         private bool comboFull = false;
+        SalaryDetailDTO detail = new SalaryDetailDTO();
+        public bool isUpdate = false;
 
         void FillAllData()
         {
@@ -131,7 +144,7 @@ namespace PersonalTrackingApp
             }
             if (txtYear.Text.Trim() != "")
             {
-                list = list.Where(x => x.SalaryYear == Convert.ToInt32(txtSalary.Text)).ToList();
+                list = list.Where(x => x.SalaryYear == Convert.ToInt32(txtYear.Text)).ToList();
             }
             if (cmbMonth.SelectedIndex != -1)
             {
@@ -176,6 +189,19 @@ namespace PersonalTrackingApp
             rbMore.Checked = false;
             rbEquals.Checked = false;
             dataGridView1.DataSource = dto.Salaries;
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+            detail.SalaryID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            detail.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            detail.SalaryAmount = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+            detail.SalaryYear = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
+            detail.OldSalary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[10].Value);
+            detail.MonthID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
+            detail.Name = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            detail.Surname = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
     }
 }

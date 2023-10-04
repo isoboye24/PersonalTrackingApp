@@ -116,7 +116,14 @@ namespace PersonalTrackingApp
                 employee.birthday = dateTimePickerBirthday.Value;
                 employee.imagePath = fileName;
                 EmployeeBLL.AddEmployee(employee);
-                File.Copy(txtImagePath.Text, @"images\\" + fileName);
+                try
+                {
+                    File.Copy(txtImagePath.Text, @"images\\" + fileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot find the path to this picture");
+                }                
                 MessageBox.Show("Employee was added");
 
                 txtUserNo.Clear();

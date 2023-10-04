@@ -66,5 +66,21 @@ namespace DAL.DataAccessObject
             }
             return salaryList;
         }
+
+        public static void UpdateSalary(SALARY updateSalary)
+        {
+            try
+            {
+                SALARY sa = db.SALARies.First(x => x.salaryID == updateSalary.salaryID);
+                sa.year = updateSalary.year;
+                sa.amount = updateSalary.amount;
+                sa.month = updateSalary.month;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }            
+        }        
     }
 }

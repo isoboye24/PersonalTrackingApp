@@ -18,7 +18,7 @@ namespace DAL.DataTransferObject
         public string DepartmentName { get; set; }
         public int PositionID { get; set; }
         public string PositionName { get; set; }
-        public string OldSalary { get; set; }
+        public int OldSalary { get; set; }
         public int SalaryYear { get; set; }
         public int MonthID { get; set; }
         public string MonthName { get; set; }
