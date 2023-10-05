@@ -79,6 +79,30 @@ namespace DAL.DataAccessObject
             return db.EMPLOYEEs.Where(x => x.userNo == v).ToList();
         }
 
+        public static void UpdateEmployee(EMPLOYEE employee)
+        {
+            try
+            {
+                EMPLOYEE emp = db.EMPLOYEEs.First(x => x.employeeID == employee.employeeID);
+                emp.userNo = employee.userNo;
+                emp.name = employee.name;
+                emp.surname = employee.surname;
+                emp.password = employee.password;
+                emp.isAdmin = employee.isAdmin;
+                emp.birthday = employee.birthday;
+                emp.address = employee.address;
+                emp.departmentID = employee.departmentID;
+                emp.positionID = employee.positionID;
+                emp.salary = employee.salary;
+                emp.imagePath = employee.imagePath;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static void UpdateSalary(int employeeID, int amount)
         {
             try
@@ -89,7 +113,6 @@ namespace DAL.DataAccessObject
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

@@ -33,18 +33,34 @@ namespace PersonalTrackingApp
             this.Hide();
             open.ShowDialog();
             this.Visible = true;
+            FillAllData();
+            ClearFilters();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FormEmployee open = new FormEmployee();
-            this.Hide();
-            open.ShowDialog();
-            this.Visible = true;
+            if (detail.EmployeeID == 0)
+            {
+                MessageBox.Show("Please select an employee from the table");
+            }
+            else 
+            {
+                FormEmployee open = new FormEmployee();
+                open.isUpdate = true;
+                open.detail = detail;
+                this.Hide();
+                open.ShowDialog();
+                this.Visible = true;
+                FillAllData();
+                ClearFilters();
+            }
+            
         }
 
         EmployeeDTO dto = new EmployeeDTO();
         private bool comboFull = false;
+        EmployeeDetailsDTO detail = new EmployeeDetailsDTO();
+        //bool isUpdate = false;
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
@@ -72,7 +88,7 @@ namespace PersonalTrackingApp
             dataGridView1.DataSource = list;
         }
 
-        private void FormEmployeeList2_Load(object sender, EventArgs e)
+        void FillAllData()
         {
             dto = EmployeeBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
@@ -93,7 +109,7 @@ namespace PersonalTrackingApp
             dataGridView1.Columns[13].Visible = false;
             comboFull = false;
             cmbDepartment.DataSource = dto.Departments;
-            cmbDepartment.DisplayMember = "Departmentname"; 
+            cmbDepartment.DisplayMember = "Departmentname";
             cmbDepartment.ValueMember = "DepartmentID";
             cmbDepartment.SelectedIndex = -1;
             cmbPosition.DataSource = dto.Positions;
@@ -102,6 +118,10 @@ namespace PersonalTrackingApp
             cmbPosition.SelectedIndex = -1;
             comboFull = true;
         }
+        private void FormEmployeeList2_Load(object sender, EventArgs e)
+        {
+            FillAllData();
+        }
 
         private void cmbPosition_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -109,6 +129,10 @@ namespace PersonalTrackingApp
         }
 
         private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFilters();
+        }
+        void ClearFilters()
         {
             txtUserNo.Clear();
             txtName.Clear();
@@ -126,6 +150,24 @@ namespace PersonalTrackingApp
             {
                 cmbPosition.DataSource = dto.Positions.Where(x => x.departmentID == Convert.ToInt32(cmbDepartment.SelectedValue)).ToList();
             }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            detail.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            detail.Name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.Surname = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            detail.ImagePath = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            detail.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+            detail.DepartmentName = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            detail.PositionID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+            detail.PositionName = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            detail.Salary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
+            detail.Birthday = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[10].Value);
+            detail.Address = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+            detail.Password = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+            detail.IsAdmin = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[13].Value);
         }
     }
 }
