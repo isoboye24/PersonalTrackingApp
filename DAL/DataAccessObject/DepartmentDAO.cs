@@ -26,5 +26,19 @@ namespace DAL.DataAccessObject
         {
             return db.DEPARTMENTs.ToList();
         }
+
+        public static void UpdateDepartment(DEPARTMENT department)
+        {
+            try
+            {
+                DEPARTMENT dp = db.DEPARTMENTs.First(x => x.departmentID == department.departmentID);
+                dp.departmentName = department.departmentName;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

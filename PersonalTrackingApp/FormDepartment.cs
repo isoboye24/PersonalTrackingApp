@@ -28,16 +28,41 @@ namespace PersonalTrackingApp
             else
             {
                 DEPARTMENT department = new DEPARTMENT();
-                department.departmentName = txtDepartment.Text;
-                DepartmentBLL.AddDepartment(department);
-                MessageBox.Show("Department was added successfully");
-                txtDepartment.Clear();
+                if (!isUpdate)
+                {                
+                    department.departmentName = txtDepartment.Text;
+                    DepartmentBLL.AddDepartment(department);
+                    MessageBox.Show("Department was added successfully");
+                    txtDepartment.Clear();               
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        department.departmentID = detail.departmentID;
+                        department.departmentName = txtDepartment.Text;
+                        DepartmentBLL.UpdateDepartment(department);
+                        MessageBox.Show("Department has been updated");
+                        this.Close();
+                    }                    
+                }            
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public bool isUpdate = false;
+        public DEPARTMENT detail = new DEPARTMENT();
+
+        private void FormDepartment_Load(object sender, EventArgs e)
+        {
+            if (isUpdate)
+            {
+                txtDepartment.Text = detail.departmentName;
+            }
         }
     }
 }

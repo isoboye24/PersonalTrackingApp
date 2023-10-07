@@ -103,6 +103,23 @@ namespace DAL.DataAccessObject
             }
         }
 
+        public static void UpdateEmployee(POSITION position)
+        {
+            try
+            {
+                List<EMPLOYEE> list = db.EMPLOYEEs.Where(x => x.positionID == position.positionID).ToList();
+                foreach (var item in list)
+                {
+                    item.departmentID = position.departmentID;
+                }
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static void UpdateSalary(int employeeID, int amount)
         {
             try

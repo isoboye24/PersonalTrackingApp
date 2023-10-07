@@ -102,6 +102,7 @@
             this.dataGridViewDept.Name = "dataGridViewDept";
             this.dataGridViewDept.Size = new System.Drawing.Size(614, 316);
             this.dataGridViewDept.TabIndex = 5;
+            this.dataGridViewDept.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDept_RowEnter);
             // 
             // FormDepartmentList
             // 

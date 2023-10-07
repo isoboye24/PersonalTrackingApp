@@ -30,10 +30,20 @@ namespace PersonalTrackingApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FormDepartment open = new FormDepartment();
-            this.Hide();
-            open.ShowDialog();
-            this.Visible = true;
+            if (detail.departmentID == 0)
+            {
+                MessageBox.Show("Please choose a department from the table");
+            }
+            else
+            {
+                FormDepartment open = new FormDepartment();
+                open.detail = detail;
+                open.isUpdate = true;
+                this.Hide();
+                open.ShowDialog();
+                FillGrid();
+                this.Visible = true;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -45,12 +55,20 @@ namespace PersonalTrackingApp
             list = DepartmentBLL.GetDepartments();
             dataGridViewDept.DataSource = list;
         }
-            List<DEPARTMENT> list = new List<DEPARTMENT>();
+        List<DEPARTMENT> list = new List<DEPARTMENT>();
+        public bool isUpdate = false;
+        public DEPARTMENT detail = new DEPARTMENT();
         private void FormDepartmentList_Load(object sender, EventArgs e)
         {
             FillGrid();
             dataGridViewDept.Columns[0].Visible = false;
             dataGridViewDept.Columns[1].HeaderText = "Department Name";
+        }
+
+        private void dataGridViewDept_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.departmentID = Convert.ToInt32(dataGridViewDept.Rows[e.RowIndex].Cells[0].Value);
+            detail.departmentName = dataGridViewDept.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
     }
 }

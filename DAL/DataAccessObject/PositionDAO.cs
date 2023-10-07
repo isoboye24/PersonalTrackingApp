@@ -55,5 +55,20 @@ namespace DAL.DataAccessObject
 				throw ex;
 			}
         }
+
+        public static void UpdatePosition(POSITION position)
+        {
+			try
+			{
+				POSITION ps = db.POSITIONs.First(x => x.positionID == position.positionID);
+				ps.positionName = position.positionName;
+				ps.departmentID = position.departmentID;
+				db.SubmitChanges();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+        }
     }
 }
