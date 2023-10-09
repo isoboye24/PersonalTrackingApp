@@ -18,7 +18,6 @@ namespace DAL.DataAccessObject
 			}
 			catch (Exception ex)
 			{
-
 				throw ex;
 			}
         }
@@ -65,7 +64,6 @@ namespace DAL.DataAccessObject
 			}
 			catch (Exception ex)
 			{
-
 				throw ex;
 			}
         }

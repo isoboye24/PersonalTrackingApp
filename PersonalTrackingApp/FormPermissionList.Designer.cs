@@ -63,6 +63,7 @@
             this.btnApprove = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -379,6 +380,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.btnClose);
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnUpdate);
@@ -386,17 +388,17 @@
             this.panel2.Controls.Add(this.btnApprove);
             this.panel2.Controls.Add(this.btnNew);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 411);
+            this.panel2.Location = new System.Drawing.Point(0, 428);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(773, 85);
+            this.panel2.Size = new System.Drawing.Size(773, 114);
             this.panel2.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(590, 30);
+            this.btnClose.Location = new System.Drawing.Point(610, 20);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 42);
@@ -409,7 +411,7 @@
             // 
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(488, 30);
+            this.btnDelete.Location = new System.Drawing.Point(508, 20);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 42);
@@ -422,7 +424,7 @@
             // 
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(383, 30);
+            this.btnUpdate.Location = new System.Drawing.Point(403, 20);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(96, 42);
@@ -435,7 +437,7 @@
             // 
             this.btnDisapprove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDisapprove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisapprove.Location = new System.Drawing.Point(46, 30);
+            this.btnDisapprove.Location = new System.Drawing.Point(66, 20);
             this.btnDisapprove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDisapprove.Name = "btnDisapprove";
             this.btnDisapprove.Size = new System.Drawing.Size(107, 42);
@@ -448,7 +450,7 @@
             // 
             this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnApprove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApprove.Location = new System.Drawing.Point(160, 30);
+            this.btnApprove.Location = new System.Drawing.Point(180, 20);
             this.btnApprove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnApprove.Name = "btnApprove";
             this.btnApprove.Size = new System.Drawing.Size(104, 42);
@@ -461,7 +463,7 @@
             // 
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.Location = new System.Drawing.Point(272, 30);
+            this.btnNew.Location = new System.Drawing.Point(292, 20);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(104, 42);
@@ -478,15 +480,28 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 204);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(773, 207);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 224);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Location = new System.Drawing.Point(261, 67);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(263, 34);
+            this.btnExcel.TabIndex = 40;
+            this.btnExcel.Text = "Export to Excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // FormPermissionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 496);
+            this.ClientSize = new System.Drawing.Size(773, 542);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -546,5 +561,6 @@
         private System.Windows.Forms.Button btnDisapprove;
         private System.Windows.Forms.ComboBox cmbState;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnExcel;
     }
 }
