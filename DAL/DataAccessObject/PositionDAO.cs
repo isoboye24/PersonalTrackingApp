@@ -23,6 +23,20 @@ namespace DAL.DataAccessObject
 			}
         }
 
+        public static void DeletePosition(int positionID)
+        {
+			try
+			{
+				POSITION ps = db.POSITIONs.First(x => x.positionID == positionID);
+				db.POSITIONs.DeleteOnSubmit(ps);
+				db.SubmitChanges();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+        }
+
         public static List<PositionDTO> GetPositions()
         {
 			try

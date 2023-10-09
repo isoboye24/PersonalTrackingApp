@@ -59,6 +59,7 @@
     <Compile Include="DataTransferObject\SalaryDTO.cs" />
     <Compile Include="DataTransferObject\TaskDetailDTO.cs" />
     <Compile Include="DataTransferObject\TaskDTO.cs" />
+    <Compile Include="DataTransferObject\TaskStates.cs" />
     <Compile Include="EmployeeDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

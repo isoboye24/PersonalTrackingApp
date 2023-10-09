@@ -70,5 +70,16 @@ namespace PersonalTrackingApp
             detail.departmentID = Convert.ToInt32(dataGridViewDept.Rows[e.RowIndex].Cells[0].Value);
             detail.departmentName = dataGridViewDept.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this department?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                DepartmentBLL.DeleteDepartment(detail.departmentID);
+                MessageBox.Show("Department was deleted");
+                FillGrid();
+            }
+        }
     }
 }

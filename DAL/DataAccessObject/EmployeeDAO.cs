@@ -23,6 +23,20 @@ namespace DAL.DataAccessObject
 			}
         }
 
+        public static void DeleteEmployee(int employeeID)
+        {
+            try
+            {
+                EMPLOYEE emp = db.EMPLOYEEs.First(x => x.employeeID == employeeID);
+                db.EMPLOYEEs.DeleteOnSubmit(emp);
+                db.SubmitChanges();                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<EMPLOYEE> GetEmployee(string text, int v)
         {
             List<EMPLOYEE> list = db.EMPLOYEEs.Where(x => x.userNo == v && x.password == text).ToList();

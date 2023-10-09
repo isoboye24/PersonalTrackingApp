@@ -23,6 +23,20 @@ namespace DAL.DataAccessObject
 			}
         }
 
+        public static void DeletePermission(int permissionID)
+        {
+            try
+            {
+                PERMISSION pm = db.PERMISSIONs.First(x => x.permissionID == permissionID);
+                db.PERMISSIONs.DeleteOnSubmit(pm);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<PermissionDetailsDTO> GetPermission()
         {
             List<PermissionDetailsDTO> permissionList = new List<PermissionDetailsDTO>();

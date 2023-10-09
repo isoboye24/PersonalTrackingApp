@@ -23,6 +23,42 @@ namespace DAL.DataAccessObject
             }
         }
 
+        public static void ApproveTask(int taskID, bool isAdmin)
+        {
+            try
+            {
+                TASK tsk = db.TASKs.First(x => x.taskID == taskID);
+                if (isAdmin)
+                {
+                    tsk.taskState = TaskStates.Approved;
+                }
+                else
+                {
+                    tsk.taskState = TaskStates.Delivered;
+                    tsk.tastDeliveryDate = DateTime.Today;
+                    db.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void DeleteTask(int taskID)
+        {
+            try
+            {
+                TASK ts = db.TASKs.First(x =>x.taskID == taskID);
+                db.TASKs.DeleteOnSubmit(ts);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<TaskDetailDTO> GetTasks()
         {
             List<TaskDetailDTO> taskList = new List<TaskDetailDTO>();

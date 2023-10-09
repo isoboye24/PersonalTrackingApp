@@ -39,7 +39,7 @@ namespace PersonalTrackingApp
                     employee = employeeList.First();
                     UserStatic.EmployeeID = employee.employeeID;
                     UserStatic.UserNo = employee.userNo;
-                    UserStatic.isAdmin = employee.isAdmin;
+                    UserStatic.isAdmin = Convert.ToBoolean(employee.isAdmin);
                     FormMain open = new FormMain();
                     this.Hide();
                     open.ShowDialog();
@@ -55,6 +55,11 @@ namespace PersonalTrackingApp
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

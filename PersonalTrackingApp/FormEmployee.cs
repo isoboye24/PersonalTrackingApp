@@ -61,6 +61,15 @@ namespace PersonalTrackingApp
                 cmbPosition.SelectedValue = detail.PositionID;
                 imagePath = Application.StartupPath + "\\images\\" + detail.ImagePath;
                 pictureBox1.ImageLocation = imagePath;
+                if (!UserStatic.isAdmin)
+                {
+                    cmbDepartment.Enabled = false;
+                    cmbPosition.Enabled = false;
+                    txtUserNo.Enabled = false;
+                    txtSalary.Enabled = false;
+                    rbIsAdmin.Hide();
+                    btnCheck.Hide();
+                }
             }
         }
         bool comboFull = false;
@@ -124,43 +133,42 @@ namespace PersonalTrackingApp
                         MessageBox.Show("This user number is used by another employee. Please, change");
                     }
                     EMPLOYEE employee = new EMPLOYEE();
-                        employee.userNo = Convert.ToInt32(txtUserNo.Text);
-                        employee.password = txtPassword.Text;
-                        employee.isAdmin = rbIsAdmin.Checked;
-                        employee.name = txtName.Text;
-                        employee.surname = txtSurname.Text;
-                        employee.salary = Convert.ToInt32(txtSalary.Text);
-                        employee.departmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
-                        employee.positionID = Convert.ToInt32(cmbPosition.SelectedValue);
-                        employee.address = txtAddress.Text;
-                        employee.birthday = dateTimePickerBirthday.Value;
-                        employee.imagePath = fileName;
-                        EmployeeBLL.AddEmployee(employee);
-                        try
-                        {
-                            File.Copy(txtImagePath.Text, @"images\\" + fileName);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Cannot find the path to this picture");
-                        }
-                        MessageBox.Show("Employee was added");
+                    employee.userNo = Convert.ToInt32(txtUserNo.Text);
+                    employee.password = txtPassword.Text;
+                    employee.isAdmin = rbIsAdmin.Checked;
+                    employee.name = txtName.Text;
+                    employee.surname = txtSurname.Text;
+                    employee.salary = Convert.ToInt32(txtSalary.Text);
+                    employee.departmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
+                    employee.positionID = Convert.ToInt32(cmbPosition.SelectedValue);
+                    employee.address = txtAddress.Text;
+                    employee.birthday = dateTimePickerBirthday.Value;
+                    employee.imagePath = fileName;
+                    EmployeeBLL.AddEmployee(employee);
+                    try
+                    {
+                        File.Copy(txtImagePath.Text, @"images\\" + fileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Cannot find the path to this picture");
+                    }
+                    MessageBox.Show("Employee was added");
 
-                        txtUserNo.Clear();
-                        txtPassword.Clear();
-                        rbIsAdmin.Checked = false;
-                        txtName.Clear();
-                        txtSurname.Clear();
-                        txtSalary.Clear();
-                        txtAddress.Clear();
-                        txtImagePath.Clear();
-                        pictureBox1.Image = null;
-                        comboFull = false;
-                        cmbDepartment.SelectedIndex = -1;
-                        cmbPosition.SelectedIndex = -1;
-                        cmbPosition.DataSource = dto.Positions;
-                        dateTimePickerBirthday.Value = DateTime.Today;
-                    
+                    txtUserNo.Clear();
+                    txtPassword.Clear();
+                    rbIsAdmin.Checked = false;
+                    txtName.Clear();
+                    txtSurname.Clear();
+                    txtSalary.Clear();
+                    txtAddress.Clear();
+                    txtImagePath.Clear();
+                    pictureBox1.Image = null;
+                    comboFull = false;
+                    cmbDepartment.SelectedIndex = -1;
+                    cmbPosition.SelectedIndex = -1;
+                    cmbPosition.DataSource = dto.Positions;
+                    dateTimePickerBirthday.Value = DateTime.Today;
                 }
                 else
                 {

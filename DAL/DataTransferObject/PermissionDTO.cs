@@ -14,4 +14,5 @@ namespace DAL.DataTransferObject
         public List<PERMISSIONSTATE> PermissionStates { get; set; }
         public List<PermissionDetailsDTO> Permissions { get; set; }
     }
+
 }

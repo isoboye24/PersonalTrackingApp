@@ -50,6 +50,10 @@ namespace PersonalTrackingApp
             {
                 MessageBox.Show("Please select a permission from the table");
             }
+            else if (detail.State == PermissionStates.Approve || detail.State == PermissionStates.Disapprove)
+            {
+                MessageBox.Show("You cannot update any approved or disapproved permission");
+            }
             else
             {
                 FormPermission open = new FormPermission();
@@ -74,6 +78,10 @@ namespace PersonalTrackingApp
         void FillData()
         {
             dto = PermissionBLL.GetAll();
+            if (!UserStatic.isAdmin)
+            {
+                dto.Permissions = dto.Permissions.Where(x =>x.EmployeeID==UserStatic.EmployeeID).ToList();
+            }
             dataGridView1.DataSource = dto.Permissions;
 
             comboFull = false;
@@ -108,7 +116,17 @@ namespace PersonalTrackingApp
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].HeaderText = "State";
             dataGridView1.Columns[13].HeaderText = "Day Amount";
-            dataGridView1.Columns[14].Visible = false;            
+            dataGridView1.Columns[14].Visible = false;
+            if (!UserStatic.isAdmin)
+            {
+                panel3.Visible = false;
+                btnApprove.Hide();
+                btnDisapprove.Hide();
+                btnDelete.Hide();
+                btnNew.Location = new Point(232, 30);
+                btnUpdate.Location = new Point(343, 30);
+                btnClose.Location = new Point(448, 30);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -202,6 +220,25 @@ namespace PersonalTrackingApp
             MessageBox.Show("Disapproved");
             FillData();
             ClearFilters();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this permission?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (detail.State == PermissionStates.Approve || detail.State == PermissionStates.Disapprove)
+                {
+                    MessageBox.Show("You cannot delete approved or disapproved permission");
+                }
+                else
+                {
+                    PermissionBLL.DeletePermission(detail.PermissionID);
+                    MessageBox.Show("Permission was deleted");
+                    FillData();
+                    ClearFilters();
+                }
+            }
         }
     }
 }

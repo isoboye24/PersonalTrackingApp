@@ -62,10 +62,10 @@ namespace PersonalTrackingApp
         {
             FillGrid();
             dataGridView1.Columns[0].HeaderText = "Department Name";
-            dataGridView1.Columns[2].HeaderText = "Position ID";
-            dataGridView1.Columns[1].HeaderText = "Old Department ID";            
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[3].HeaderText = "Position Name";
-            dataGridView1.Columns[4].HeaderText = "Department ID";
+            dataGridView1.Columns[4].Visible = false;
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -76,6 +76,15 @@ namespace PersonalTrackingApp
             detail.OldDepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
         }
 
-       
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this position?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                PositionBLL.DeletePosition(detail.positionID);
+                MessageBox.Show("Position was deleted");
+                FillGrid();
+            }
+        }
     }
 }

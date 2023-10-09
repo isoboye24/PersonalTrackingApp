@@ -22,6 +22,20 @@ namespace DAL.DataAccessObject
             
         }
 
+        public static void DeleteDepartment(int departmentID)
+        {
+            try
+            {
+                DEPARTMENT dp = db.DEPARTMENTs.First(x => x.departmentID == departmentID);
+                db.DEPARTMENTs.DeleteOnSubmit(dp);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<DEPARTMENT> GetDepartments()
         {
             return db.DEPARTMENTs.ToList();
